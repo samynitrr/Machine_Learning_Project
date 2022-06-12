@@ -6,7 +6,7 @@ app =Flask(__name__);
 
 @app.route('/', methods=['GET', 'POST'])
 def index():
-    return "Starting a new Machine Learning Project"
+    return "CI CD Pipeline has been established and deployed successfully"
 
 
 

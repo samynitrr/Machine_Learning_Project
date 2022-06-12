@@ -4,5 +4,6 @@ June-12
 - Create a hello world flask application
 - Create a Docker Image
 - run the docker container
+- Establish CI CD pipeline with Github Actions
 
 
