@@ -1,5 +1,6 @@
-Flask
-gunicorn
 numpy
 pandas
 sklearn
+flask
+gunicorn
+-e .

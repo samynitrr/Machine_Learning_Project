@@ -91,6 +91,38 @@ To stop docker container
 docker stop <container_id>
 ```
 
+To install requirements.txt
 ```
  python setup.py install
+```
+
+Project Structure
+```
+|-- Project
+    |-- housing (Project folder)
+    |-- __init__.py
+    |-- component
+        |-- __init__.py
+    |-- config
+        |-- __init__.py
+    |-- entity
+        |-- __init__.py
+    |-- exception
+        |-- __init__.py
+    |-- logger
+        |-- __init__.py
+    |-- pipeline
+        |-- __init__.py
+    |-- .github
+        |-- workflows
+            |-- main.yaml
+    |-- .dockerignore
+    |-- .gitignore
+    |-- Dockerfile
+    |-- app.py
+    |-- requirements.txt
+    |-- setup.py
+    |-- LICENSE
+    |-- README.md
+
 ```
