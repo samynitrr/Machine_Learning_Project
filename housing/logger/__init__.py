@@ -8,7 +8,7 @@ CURRENT_TIME_STAMP = f"{datetime.now().strftime('%Y-%m-%d %H:%M:%S')}"
 
 LOG_FILE_NAME = f"log_{CURRENT_TIME_STAMP}.log"
 
-os.makedirs(LOG_DIR, exist_ok=True)
+os.makedirs(LOG_DIR, exist_ok=True) # create the folder only if the folder does not exist
 
 LOG_FILE_PATH = os.path.join(LOG_DIR, LOG_FILE_NAME)
 
