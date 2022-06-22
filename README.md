@@ -96,30 +96,37 @@ To install requirements.txt
  python setup.py install
 ```
 
-Project Structure
+### Project Structure
 ```
 |-- Project
     |-- housing (Project folder)
-    |-- __init__.py
-    |-- component
         |-- __init__.py
-    |-- config
-        |-- __init__.py
-    |-- entity
-        |-- __init__.py
-    |-- exception
-        |-- __init__.py
-    |-- logger
-        |-- __init__.py
-    |-- pipeline
-        |-- __init__.py
-    |-- .github
+        |-- component (pipeline stages)
+            |-- __init__.py
+            |-- data_ingestion.py
+            |-- data_validation.py
+            |-- data_transformation.py
+            |-- model_trainer.py
+            |-- model_evaluation.py
+            |-- model_pusher.py
+        |-- config
+            |-- __init__.py
+        |-- entity (artifacts)
+            |-- __init__.py
+        |-- exception
+            |-- __init__.py
+        |-- logger
+            |-- __init__.py
+        |-- pipeline
+            |-- __init__.py
+            |-- pipeline.py
+    |-- .github (Continuous Delivery/Deployment)
         |-- workflows
-            |-- main.yaml
+            |-- main.yaml    
+    |-- Dockerfile
     |-- .dockerignore
     |-- .gitignore
-    |-- Dockerfile
-    |-- app.py
+    |-- app.py (Entry Point)
     |-- requirements.txt
     |-- setup.py
     |-- LICENSE
