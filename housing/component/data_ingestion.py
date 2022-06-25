@@ -1,5 +1,4 @@
-from housing.entity.config_entity import DataIngestionConfig
-from housing.entity.artifact_entity import DataIngestionArtifact
+from housing.entity.config_entity import DataIngestionConfig,DataIngestionArtifact
 from housing.exception import HousingException
 from housing.logger import logging
 import os,sys

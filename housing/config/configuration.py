@@ -45,10 +45,10 @@ class Configuration:
             )
 
             ingested_train_dir= os.path.join(ingested_dir,
-                data_ingestion_config[DATA_INGESTION_TRAIN_DIR_KEY]
+                data_ingestion_config[DATA_INGESTION_INGESTED_TRAIN_DIR_KEY]
                 )
             ingested_test_dir= os.path.join(ingested_dir,
-                data_ingestion_config[DATA_INGESTION_TEST_DIR_KEY]
+                data_ingestion_config[DATA_INGESTION_INGESTED_TEST_DIR_KEY]
                 )
 
 
@@ -65,19 +65,51 @@ class Configuration:
             raise HousingException(e,sys) from e
 
     def get_data_validation_config(self)->DataValidationConfig:
-        pass
+        try:
+            data_validation_config = self.config_info[DATA_VALIDATION_CONFIG_KEY]
+            schema_file_path = data_validation_config[DATA_VALIDATION_SCHEMA_FILE_NAME_KEY]
+            data_validation_config = DataValidationConfig(schema_file_path=schema_file_path)
+            logging.info(f"Data Validation config: {data_validation_config}")
+            return data_validation_config
+        except Exception as e:
+            raise HousingException(e,sys) from e
 
     def get_data_transformation_config(self)-> DataTransformationConfig:
-        pass
+        try:
+            data_transformation_config = self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
+            schema_file_path = data_validation_config[DATA_VALIDATION_SCHEMA_FILE_NAME]
+            data_validation_config = DataValidationConfig(schema_file_path=schema_file_path)
+            logging.info(f"Data Transformation config: {data_transformation_config}")
+            return data_transformation_config
+        except Exception as e:
+            raise HousingException(e,sys) from e
 
     def get_model_trainer_config(self)-> ModelTrainerConfig:
         pass
 
     def get_model_evaluation_config(self)->ModelEvaluationConfig:
-        pass
+        try:
+            model_evaluation_config = self.config_info[MODEL_PUSHER_CONFIG_KEY]
+            export_dir_path = model_evaluation_config[MODEL_PUSHER_EXPORT_DIR_KEY]
+            model_evaluation_config = ModelPusherConfig(export_dir_path=export_dir_path)
+            logging.info(f"Data Transformation config: {model_evaluation_config}")
+            return model_evaluation_config
+        except Exception as e:
+            raise HousingException(e,sys) from e
 
     def get_model_pusher_config(self)->ModelPusherConfig:
-        pass
+        try:
+            model_pusher_config = self.config_info[MODEL_PUSHER_CONFIG_KEY]
+            artifact_dir = self.training_pipeline_config.artifact_dir
+            export_dir_path = os.path.join(artifact_dir,
+            model_pusher_config[MODEL_PUSHER_EXPORT_DIR_KEY],
+            self.time_stamp
+            )
+            model_pusher_config = ModelPusherConfig(export_dir_path=export_dir_path)
+            logging.info(f"Data Transformation config: {model_pusher_config}")
+            return model_pusher_config
+        except Exception as e:
+            raise HousingException(e,sys) from e
 
     def get_training_pipeline_config(self) -> TrainingPipelineConfig:
         try:
