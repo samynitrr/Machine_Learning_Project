@@ -95,12 +95,21 @@ To install requirements.txt
 ```
  python setup.py install
 ```
+Install ipykernel
+
+```
+pip install ipykernel
+```
 
 ### Project Structure
 ```
 |-- Project
+    |-- config
+        |-- config.yaml
     |-- housing (Project folder)
         |-- __init__.py
+        |--constant (All the hardcode values)
+            |--__init__.py
         |-- component (pipeline stages)
             |-- __init__.py
             |-- data_ingestion.py
@@ -111,8 +120,10 @@ To install requirements.txt
             |-- model_pusher.py
         |-- config
             |-- __init__.py
+            |-- configuration.py
         |-- entity (artifacts)
             |-- __init__.py
+            |-- config_entity.py
         |-- exception
             |-- __init__.py
         |-- logger
@@ -120,6 +131,9 @@ To install requirements.txt
         |-- pipeline
             |-- __init__.py
             |-- pipeline.py
+        |-- util (Helper function)
+            |--__init__.py
+            |-- util.py
     |-- .github (Continuous Delivery/Deployment)
         |-- workflows
             |-- main.yaml    
