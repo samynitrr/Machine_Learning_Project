@@ -1,4 +1,5 @@
-from housing.entity.config_entity import ModelEvaluationConfig, ModelEvaluationArtifact
+from housing.entity.config_entity import ModelEvaluationConfig
+from housing.entity.artifact_entity import ModelEvaluationArtifact
 from housing.exception import HousingException
 from housing.logger import logging
 import os,sys

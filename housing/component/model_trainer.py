@@ -1,4 +1,5 @@
-from housing.entity.config_entity import ModelTrainerConfig, ModelTrainerArtifact
+from housing.entity.config_entity import ModelTrainerConfig
+from housing.entity.artifact_entity import ModelTrainerArtifact
 from housing.exception import HousingException
 from housing.logger import logging
 import os,sys

@@ -1,4 +1,5 @@
-from housing.entity.config_entity import DataValidationConfig,DataValidationArtifact
+from housing.entity.config_entity import DataValidationConfig
+from housing.entity.artifact_entity import DataValidationArtifact
 from housing.exception import HousingException
 from housing.logger import logging
 import os,sys

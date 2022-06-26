@@ -1,4 +1,5 @@
-from housing.entity.config_entity import ModelPusherConfig, ModelPusherArtifact
+from housing.entity.config_entity import ModelPusherConfig
+from housing.entity.artifact_entity import ModelPusherArtifact
 from housing.exception import HousingException
 from housing.logger import logging
 import os,sys
