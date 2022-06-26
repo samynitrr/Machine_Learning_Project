@@ -20,11 +20,17 @@ class HousingException(Exception):
         _, _, exec_tb = error_detail.exc_info() # from the error details, get the traceback of the error. 
                                                 # It returns tuples of (filename, line number, function name, text)
 
-        line_no = exec_tb.tb_frame.f_lineno # get the line number of the error
+        exception_block_lin_no = exec_tb.tb_frame.f_lineno # get the line number of the exception block error
+        try_block_line_no = exec_tb.tb_lineno # get the line number of the error in the try block
         file_name = exec_tb.tb_frame.f_code.co_filename # get the file name from the traceback
         function_name = exec_tb.tb_frame.f_code.co_name # get the function name from the traceback
 
-        error_message = f"Error occurred in script: [{file_name}] at line number: [{line_no}] in function : {function_name} error message:\n{error_message}"
+        error_message = f"""
+        Error occurred in script: [{file_name}] 
+        at try block line number: [{try_block_line_no}] and exception block line number: [{exception_block_lin_no}] 
+        in function : {function_name} 
+        error message:\n{error_message}
+        """
 
         return error_message
 

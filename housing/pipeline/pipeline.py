@@ -17,19 +17,18 @@ from housing.component.model_pusher import ModelPusher
 
 class Pipeline:
 
-    def __init__(self, config: Configuration = Configuration)-> None:
+    def __init__(self, config:Configuration = Configuration())-> None:
         try:
             self.config = config
         except Exception as e:
             raise HousingException(e, sys) from e
 
-    def start_data_ingestion(self)-> DataIngestionArtifact:
+    def start_data_ingestion(self)->DataIngestionArtifact:
         try:
             data_ingestion = DataIngestion(data_ingestion_config=self.config.get_data_ingestion_config())
             return data_ingestion.initiate_data_ingestion()
-             
         except Exception as e:
-            raise HousingException(e, sys) from e
+            raise HousingException(e,sys) from e 
 
     def start_data_validation(self)-> DataValidationArtifact:
         try:
@@ -78,12 +77,6 @@ class Pipeline:
             #data ingestion
             logging.info(f"Data Ingested")
             data_ingestion_artifact = self.start_data_ingestion()
-            data_validation_artifact = self.start_data_validation()
-            data_transformation_artifact = self.start_data_transformation()
 
-            model_train_artifact = self.start_model_training()
-            model_evaluation_artifact = self.start_model_evaluation()
-            model_push_artifact = self.start_model_push()
-            pass
         except Exception as e:
             raise HousingException(e, sys) from e

@@ -20,3 +20,7 @@ class ModelTrainer:
             pass
         except Exception as e:
             raise HousingException(e,sys) from e
+
+
+    def __del__(self):
+        logging.info(f"{'='*20}Model Trainer log completed.{'='*20}")
