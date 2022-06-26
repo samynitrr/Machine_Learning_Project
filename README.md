@@ -136,7 +136,9 @@ pip install ipykernel
             |-- util.py
     |-- .github (Continuous Delivery/Deployment)
         |-- workflows
-            |-- main.yaml    
+            |-- main.yaml  
+    |-- schema
+        |-- schema.yaml  
     |-- Dockerfile
     |-- .dockerignore
     |-- .gitignore
