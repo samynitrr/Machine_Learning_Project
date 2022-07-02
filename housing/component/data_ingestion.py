@@ -1,4 +1,3 @@
-from scipy.sparse import data
 from housing.entity.config_entity import DataIngestionConfig
 from housing.entity.artifact_entity import DataIngestionArtifact
 from housing.exception import HousingException

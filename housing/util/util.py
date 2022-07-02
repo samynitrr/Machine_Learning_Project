@@ -12,7 +12,19 @@ def read_yaml_file(file_path:str)->dict:
     except Exception as e:
         raise HousingException(e,sys) from e
 
-
+# def generate_schema_file(self,file_path:str)->dict:
+#         """
+#         Reads a data file and returns the schema as a dictionary.
+#         file_path: str
+#         """
+#         try:
+#             df = pd.read_csv(file_path)
+#             columns = df.columns
+#             data_types = list(map(lambda x:str(x).replace("dtype('","").replace("')",""), df.dtypes.values))
+#             schema = {"columns": dict(zip(columns,data_types))}
+#             return schema 
+#         except Exception as e:
+#             raise HousingException(e,sys) from e
 
 
 
