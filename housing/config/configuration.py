@@ -101,19 +101,63 @@ class Configuration:
 
     def get_data_transformation_config(self)-> DataTransformationConfig:
         try:
-            data_transformation_config = self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
-            schema_file_path = data_validation_config[DATA_VALIDATION_SCHEMA_FILE_NAME_KEY]
-            data_validation_config = DataValidationConfig(schema_file_path=schema_file_path)
+            artifact_dir = self.training_pipeline_config.artifact_dir
+            data_transformation_artifact_dir=os.path.join(
+                artifact_dir,
+                DATA_TRANSFORMATION_ARTIFACT_DIR,
+                self.time_stamp
+            )
+            data_transformation_config_info= self.config_info[DATA_TRANSFORMATION_CONFIG_KEY]
+            
+            add_bedroom_per_room = data_transformation_config_info[DATA_TRANSFORMATION_ADD_COLUMN_KEY]
+
+            preprocessed_object_file_path = os.path.join(
+                data_transformation_artifact_dir,
+                data_transformation_config_info[DATA_TRANSFORMATION_PREPROCESSING_DIR_KEY],
+                data_transformation_config_info[DATA_TRANSFORMATION_PREPROCESSED_FILE_NAME_KEY]
+            )            
+            transformed_train_dir = os.path.join(
+                data_transformation_artifact_dir,
+                data_transformation_config_info[DATA_TRANSFORMATION_TRANSFORMED_DIR_KEY],
+                data_transformation_config_info[DATA_TRANSFORMATION_TRANSFORMED_TRAIN_DIR_KEY]
+            )
+
+            transformed_test_dir = os.path.join(
+                data_transformation_artifact_dir,
+                data_transformation_config_info[DATA_TRANSFORMATION_TRANSFORMED_DIR_KEY],
+                data_transformation_config_info[DATA_TRANSFORMATION_TRANSFORMED_TEST_DIR_KEY]
+            )
+
+            data_transformation_config = DataTransformationConfig(
+                add_bedroom_per_room=add_bedroom_per_room,
+                preprocessed_object_file_path= preprocessed_object_file_path,
+                transformed_train_dir = transformed_train_dir,
+                transformed_test_dir = transformed_test_dir
+                )
             logging.info(f"Data Transformation config: {data_transformation_config}")
             return data_transformation_config
         except Exception as e:
             raise HousingException(e,sys) from e
 
     def get_model_trainer_config(self)-> ModelTrainerConfig:
-        pass
+        try:
+            artifact_dir = self.training_pipeline_config.artifact_dir
+            model_trainer_artifact_dir=os.path.join(
+                artifact_dir,
+                MODEL_TRAINER_ARTIFACT_DIR,
+                self.time_stamp
+            )
+        except Exception as e:
+            raise HousingException(e, sys) from e
 
     def get_model_evaluation_config(self)->ModelEvaluationConfig:
         try:
+            artifact_dir = self.training_pipeline_config.artifact_dir
+            model_evaluation_artifact_dir=os.path.join(
+                artifact_dir,
+                MODEL_EVALUATION_ARTIFACT_DIR,
+                self.time_stamp
+            )
             model_evaluation_config = self.config_info[MODEL_PUSHER_CONFIG_KEY]
             export_dir_path = model_evaluation_config[MODEL_PUSHER_EXPORT_DIR_KEY]
             model_evaluation_config = ModelPusherConfig(export_dir_path=export_dir_path)
@@ -124,6 +168,12 @@ class Configuration:
 
     def get_model_pusher_config(self)->ModelPusherConfig:
         try:
+            artifact_dir = self.training_pipeline_config.artifact_dir
+            model_pusher_artifact_dir=os.path.join(
+                artifact_dir,
+                MODEL_PUSHER_ARTIFACT_DIR,
+                self.time_stamp
+            )
             model_pusher_config = self.config_info[MODEL_PUSHER_CONFIG_KEY]
             artifact_dir = self.training_pipeline_config.artifact_dir
             export_dir_path = os.path.join(artifact_dir,

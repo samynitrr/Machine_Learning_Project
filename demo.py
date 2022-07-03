@@ -13,6 +13,7 @@ def main():
     try:
         pipeline = Pipeline()
         pipeline.run_pipeline()
+        # print(Configuration().get_data_transformation_config())
     except Exception as e:
         logging.error(f"{e}")
         print(e)

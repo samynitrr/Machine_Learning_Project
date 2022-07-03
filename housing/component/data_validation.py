@@ -1,4 +1,3 @@
-from housing.constant import SCHEMA_FILE_PATH
 from housing.entity.config_entity import DataValidationConfig
 from housing.entity.artifact_entity import DataIngestionArtifact, DataValidationArtifact
 from housing.exception import HousingException

@@ -47,26 +47,44 @@ DATA_VALIDATION_REPORT_FILE_NAME_KEY = "report_file_name"
 DATA_VALIDATION_REPORT_PAGE_FILE_NAME_KEY = "report_page_file_name"
 
 
+########## Data Column names
+COLUMN_TOTAL_ROOMS = "total_rooms"
+COLUMN_POPULATION = "population"
+COLUMN_HOUSEHOLDS = "households"
+COLUMN_TOTAL_BEDROOM = "total_bedrooms"
+
+########### SCHEMA KEYS
+
+DATA_SCHEMA_COLUMN_KEY = "columns"
+DATA_SCHEMA_DOMAIN_VALUE_KEY = "domain_value"
+DATA_SCHEMA_NUMERICAL_COLUMN_KEY = "numerical_columns"
+DATA_SCHEMA_CATEGORICAL_COLUMN_KEY = "categorical_columns"
+DATA_SCHEMA_TARGET_COLUMN_KEY = "target_column"
+
 ####### DATA TRANSFORMATION related Variable
 
 DATA_TRANSFORMATION_CONFIG_KEY = "data_transformation_config"
 DATA_TRANSFORMATION_ADD_COLUMN_KEY = "add_bedroom_per_room"
 DATA_TRANSFORMATION_TRANSFORMED_DIR_KEY = "transformed_dir"
 DATA_TRANSFORMATION_TRANSFORMED_TRAIN_DIR_KEY = "transformed_train_dir"
-DATA_TRANSFORMATION_TRANSFORMED_TRAIN_DIR_KEY = "transformed_test_dir"
-DATA_TRANSFORMATION_PREPROCESS_DIR_KEY = "preprocessing_dir"
+DATA_TRANSFORMATION_TRANSFORMED_TEST_DIR_KEY = "transformed_test_dir"
+DATA_TRANSFORMATION_PREPROCESSING_DIR_KEY = "preprocessing_dir"
 DATA_TRANSFORMATION_PREPROCESSED_FILE_NAME_KEY = "preprocessed_object_file_name"
+DATA_TRANSFORMATION_ARTIFACT_DIR = "data_transformation"
 
 ####### MODEL TRAINER related Variable
 MODEL_TRAINER_CONFIG_KEY = "model_trainer_config"
 MODEL_TRAINER_TRAINED_MODEL_DIR_KEY = "trained_model_dir"
 MODEL_TRAINER_MODEL_FILE_NAME_KEY = "model_file_name"
 MODEL_TRAINER_BASE_ACCURACY_KEY = "base_accuracy"
+MODEL_TRAINER_ARTIFACT_DIR = "model_train"
 
 ####### MODEL EVALUATION related Variable
 MODEL_EVALUATION_CONFIG_KEY = "model_evaluation_config"
 MODEL_EVALUATION_FILE_NAME_KEY = "model_evaluation_file_name"
+MODEL_EVALUATION_ARTIFACT_DIR = "model_evaluation"
   
 ####### MODEL PUSHER related Variable
 MODEL_PUSHER_CONFIG_KEY = "model_pusher_config"
 MODEL_PUSHER_EXPORT_DIR_KEY = "model_export_dir"
+MODEL_PUSHER_ARTIFACT_DIR = "model_pusher"
