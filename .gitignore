@@ -136,3 +136,4 @@ notebook/
 
 #model_registry
 model_registry/
+.pkl
