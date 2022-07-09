@@ -106,8 +106,17 @@ pip install ipykernel
 |-- Project
     |-- config
         |-- config.yaml
+        |-- schema.yaml
+        |-- model.yaml
     |-- housing (Project folder)
         |-- __init__.py
+        |-- artifact (generated_output from code/not pushed in github)
+            |-- data_ingestion
+            |-- data_validation
+            |-- data_transformation
+            |-- experiment
+            |-- model_trainer
+            |-- model_evaluation
         |--constant (All the hardcode values)
             |--__init__.py
         |-- component (pipeline stages)
@@ -121,9 +130,13 @@ pip install ipykernel
         |-- config
             |-- __init__.py
             |-- configuration.py
-        |-- entity (artifacts)
+        |-- entity
             |-- __init__.py
             |-- config_entity.py
+            |-- artifact_entity.py
+            |-- model_factory.py
+            |-- experiment.py
+            |-- housing_predictor.py
         |-- exception
             |-- __init__.py
         |-- logger
@@ -134,11 +147,12 @@ pip install ipykernel
         |-- util (Helper function)
             |--__init__.py
             |-- util.py
+    |-- model_registry (generated_output/ready to deploy production models)
+        |-- timestamp
+            |-- best_model.pkl
     |-- .github (Continuous Delivery/Deployment)
         |-- workflows
-            |-- main.yaml  
-    |-- schema
-        |-- schema.yaml  
+            |-- main.yaml
     |-- Dockerfile
     |-- .dockerignore
     |-- .gitignore
