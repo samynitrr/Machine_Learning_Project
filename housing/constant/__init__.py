@@ -13,7 +13,7 @@ CONFIG_FILE_PATH = os.path.join(ROOT_DIR, CONFIG_DIR, CONFIG_FILE_NAME)
 
 
 ############# SCHEMA FILE PATH
-SCHEMA_DIR = "schema"
+SCHEMA_DIR = "config"
 SCHEMA_FILE_NAME = "schema.yaml"
 SCHEMA_FILE_PATH = os.path.join(ROOT_DIR, SCHEMA_DIR, SCHEMA_FILE_NAME)
 
@@ -93,7 +93,7 @@ MODEL_EVALUATION_ARTIFACT_DIR = "model_evaluation"
   
 ####### MODEL PUSHER related Variable
 MODEL_PUSHER_CONFIG_KEY = "model_pusher_config"
-MODEL_PUSHER_EXPORT_DIR_KEY = "model_export_dir"
+MODEL_PUSHER_MODEL_EXPORT_DIR_KEY = "model_export_dir"
 MODEL_PUSHER_ARTIFACT_DIR = "model_pusher"
 
 
