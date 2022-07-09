@@ -1,8 +1,10 @@
 numpy
-pandas
-sklearn
-flask
+Flask
 gunicorn
+sklearn
+pandas
 PyYAML
 evidently
 dill
+matplotlib
+pyexpat

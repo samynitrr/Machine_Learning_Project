@@ -82,7 +82,7 @@ class Pipeline(Thread):
             model_trainer = ModelTrainer(model_trainer_config=self.config.get_model_trainer_config(),
             data_transformation_artifact=data_transformation_artifact
             )
-            return model_trainer.initiate_model_trainer()
+            return model_trainer.initiate_model_training()
         except Exception as e:
             raise HousingException(e,sys) from e
 
@@ -105,7 +105,7 @@ class Pipeline(Thread):
                 model_pusher_config=self.config.get_model_pusher_config(),
                 model_evaluation_artifact=model_eval_artifact
             )
-            return model_pusher.initiate_model_pusher()
+            return model_pusher.initiate_model_push()
         except Exception as e:
             raise HousingException(e, sys) from e
 
@@ -202,6 +202,7 @@ class Pipeline(Thread):
                 print("First start experiment")
         except Exception as e:
             raise HousingException(e,sys) from e    
+            
     @classmethod
     def get_experiments_status(cls,limit:int=5)->pd.DataFrame:
         try:

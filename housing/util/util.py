@@ -148,5 +148,25 @@ def load_dataset(file_path:str, schema_file_path:str)->pd.DataFrame:
     except Exception as e:
         raise HousingException(e,sys) from e
 
+## Assignment
+def load_model_from_s3_bucket():
+    pass
+
+def save_model_to_s3_bucket():
+    pass
+
+def load_model_from_google_cloud_storage():
+    pass
+
+def save_model_to_google_cloud_storage():
+    pass
+
+def load_model_from_azure_blob():
+    pass
+
+def save_model_to_azure_blob():
+    pass
+
+
 
 
