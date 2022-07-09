@@ -22,6 +22,7 @@ from collections import namedtuple
 from datetime import datetime
 import pandas  as pd
 from housing.constant import EXPERIMENT_DIR_NAME, EXPERIMENT_FILE_NAME
+
 Experiment = namedtuple("Experiment",["experiment_id","initialization_timestamp","artifact_time_stamp",
 "running_status","start_time","stop_time","execution_time","message","experiment_file_path","accuracy","is_model_accepted"])
 
