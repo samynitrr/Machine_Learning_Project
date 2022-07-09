@@ -1,8 +1,3 @@
-from multiprocessing import Pipe
-import re
-
-from nbformat import read
-from sklearn import preprocessing
 from housing.entity.config_entity import DataTransformationConfig
 from housing.entity.artifact_entity import DataIngestionArtifact, DataTransformationArtifact, DataValidationArtifact
 from housing.constant import COLUMN_HOUSEHOLDS,COLUMN_POPULATION,COLUMN_TOTAL_BEDROOM,COLUMN_TOTAL_ROOMS, DATA_SCHEMA_CATEGORICAL_COLUMN_KEY, DATA_SCHEMA_COLUMN_KEY, DATA_SCHEMA_NUMERICAL_COLUMN_KEY, DATA_SCHEMA_TARGET_COLUMN_KEY

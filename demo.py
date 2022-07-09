@@ -7,13 +7,16 @@ from housing.logger import logging
 from housing.config.configuration import Configuration
 from housing.component.data_validation import DataValidation
 from housing.component.data_ingestion import DataIngestion
-from housing.util.util import read_yaml_file
+from housing.util.util import read_yaml_file, generate_and_save_schema_file
 import pandas as pd
 def main():
     try:
         pipeline = Pipeline()
         pipeline.run_pipeline()
         # print(Configuration().get_data_transformation_config())
+        # raw_file_path = "/Users/sameershekhar/Documents/Machine_Learning_Projects/MLE2EProject/Machine_Learning_Project/housing/artifact/data_ingestion/2022-06-26 12:36:57/raw_data/housing.csv"
+        # target_column_name = "median_house_vlaue"
+        # generate_and_save_schema_file(data_file_path = raw_file_path, target_column_name=target_column_name)
     except Exception as e:
         logging.error(f"{e}")
         print(e)

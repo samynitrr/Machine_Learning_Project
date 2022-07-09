@@ -1,4 +1,4 @@
-from curses import raw
+
 import os,sys
 from housing.entity.config_entity import *
 from housing.exception import HousingException
@@ -32,6 +32,7 @@ class Configuration:
             data_ingestion_info = self.config_info[DATA_INGESTION_CONFIG_KEY]
             
             dataset_download_url = data_ingestion_info[DATA_INGESTION_DOWNLOAD_URL_KEY]
+            
             tgz_download_dir = os.path.join(
                 data_ingestion_artifact_dir,
                 data_ingestion_info[DATA_INGESTION_TGZ_DOWNLOAD_DIR_KEY]
@@ -64,7 +65,7 @@ class Configuration:
             logging.info(f"Data Ingestion config: {data_ingestion_config}")
             return data_ingestion_config
         except Exception as e:
-            raise HousingException(e,sys) from e
+            raise HousingException(e,sys) from e  
 
     def get_data_validation_config(self)->DataValidationConfig:
         try:
@@ -147,6 +148,29 @@ class Configuration:
                 MODEL_TRAINER_ARTIFACT_DIR,
                 self.time_stamp
             )
+
+            model_trainer_config_info = self.config_info[MODEL_TRAINER_CONFIG_KEY]
+
+            trained_model_file_path = os.path.join(
+                model_trainer_artifact_dir,
+                model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_DIR_KEY],
+                model_trainer_config_info[MODEL_TRAINER_TRAINED_MODEL_FILE_NAME_KEY]
+                )
+            base_accuracy = model_trainer_config_info[MODEL_TRAINER_BASE_ACCURACY_KEY]
+
+            model_config_file_path = os.path.join(
+                trained_model_file_path,
+                model_trainer_config_info[MODEL_TRAINER_CONFIG_DIR_KEY],
+                model_trainer_config_info[MODEL_TRAINER_CONFIG_FILE_NAME_KEY]
+            )
+
+            model_trainer_config = ModelTrainerConfig(
+                trained_model_file_path= trained_model_file_path,
+                base_accuracy= base_accuracy,
+                model_config_file_path= model_config_file_path
+            )
+            logging.info(f"Model Trainer Config: {model_trainer_config}")
+            return model_trainer_config
         except Exception as e:
             raise HousingException(e, sys) from e
 

@@ -73,11 +73,14 @@ DATA_TRANSFORMATION_PREPROCESSED_FILE_NAME_KEY = "preprocessed_object_file_name"
 DATA_TRANSFORMATION_ARTIFACT_DIR = "data_transformation"
 
 ####### MODEL TRAINER related Variable
+MODEL_TRAINER_ARTIFACT_DIR = "model_trainer"
 MODEL_TRAINER_CONFIG_KEY = "model_trainer_config"
 MODEL_TRAINER_TRAINED_MODEL_DIR_KEY = "trained_model_dir"
-MODEL_TRAINER_MODEL_FILE_NAME_KEY = "model_file_name"
+MODEL_TRAINER_TRAINED_MODEL_FILE_NAME_KEY = "model_file_name"
 MODEL_TRAINER_BASE_ACCURACY_KEY = "base_accuracy"
-MODEL_TRAINER_ARTIFACT_DIR = "model_train"
+MODEL_TRAINER_CONFIG_DIR_KEY = "model_config_dir"
+MODEL_TRAINER_CONFIG_FILE_NAME_KEY = "model_config_file_name"
+
 
 ####### MODEL EVALUATION related Variable
 MODEL_EVALUATION_CONFIG_KEY = "model_evaluation_config"

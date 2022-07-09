@@ -22,7 +22,7 @@ class DataIngestion:
     def download_data(self) -> str:
         try:
             #extract remote url to download dataset
-            download_url = self.data_ingestion_config.dataset_download_url
+            download_url = self.data_ingestion_config.dataset_download_url 
 
             # folder location to download file
             tgz_download_dir = self.data_ingestion_config.tgz_download_dir
@@ -58,8 +58,13 @@ class DataIngestion:
 
             os.makedirs(raw_data_dir, exist_ok=True)
             logging.info(f"Extracting tgz file: [{tgz_file_path}] into: [{raw_data_dir}]")
+            
+            # Using tarfile to extract all the contents of the .tgz file
+            # tgz_file path is the location of the .tgz file and
+            # raw_data_dir is the location of the extracted file
             with tarfile.open(tgz_file_path) as tgz_file_object:
                 tgz_file_object.extractall(path=raw_data_dir)
+
             logging.info(f"Extracting completed successfully")
 
         except Exception as e:
